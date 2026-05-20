@@ -3,20 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cocktail API...</title>
+    <title>Met Museum Art Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <header>
-      <h1>Vorlage für interaktive Medien II</h1>
-    </header>
-    <main>
-      <h2>Main Content</h2>
-      <p>This is the main content of the page.</p>
-    </main>
-    <footer>
-      <p>This is the footer of the page.</p>
-    </footer>
-    <script src="js/script.js" type="module"></script>
+    <div class="page">
+      <header class="site-header">
+        <p class="topline-text">
+          The Metropolitan Museum of Art Collection API
+        </p>
+        <div class="line"></div>
+
+        <section class="hero">
+          <img class="logo" src="img/artinspired.png" alt="ART inspired Logo" />
+
+          <p class="lead">
+            ART inspired dient als Inspirationsquelle für Kreative aller Art und
+            öffnet den Zugang zu Kunstwerken aus der ganzen Welt – von zeitlosen
+            Meisterwerken bis zu verborgenen Schätzen aus der Sammlung des
+            Metropolitan Museum of Art in New York.
+          </p>
+        </section>
+
+        <div class="line"></div>
+      </header>
+
+      <main class="container">
+        <section class="search-box">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="searchInput">Suchbegriff</label>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="z.B. Flowers, Van Gogh, Japan"
+              />
+            </div>
+
+            <div class="field">
+              <label for="searchType">Suchen in</label>
+              <select id="searchType">
+                <option value="all">Alles</option>
+                <option value="title">Titel</option>
+                <option value="tags">Tags / Thema</option>
+                <option value="artistOrCulture">Künstler oder Kultur</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="departmentSelect">Department</label>
+              <select id="departmentSelect">
+                <option value="">Alle Departments</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="dateBeginInput">Jahr von</label>
+              <input
+                id="dateBeginInput"
+                type="number"
+                placeholder="z.B. 1700"
+              />
+            </div>
+
+            <div class="field">
+              <label for="dateEndInput">Jahr bis</label>
+              <input id="dateEndInput" type="number" placeholder="z.B. 1900" />
+            </div>
+          </div>
+
+          <div class="options">
+            <label class="checkbox">
+              <input id="hasImagesCheckbox" type="checkbox" checked />
+              Nur mit Bildern
+            </label>
+
+            <label class="checkbox">
+              <input id="highlightCheckbox" type="checkbox" />
+              Nur Highlights
+            </label>
+
+            <label class="checkbox">
+              <input id="onViewCheckbox" type="checkbox" />
+              Im Museum ausgestellt
+            </label>
+          </div>
+
+          <button id="searchButton" type="button">Suchen</button>
+        </section>
+
+        <section class="status-section">
+          <div id="statusText">
+            Gib einen Suchbegriff ein und starte die Suche.
+          </div>
+        </section>
+
+        <section id="results" class="results"></section>
+      </main>
+
+      <footer class="footer">
+        <div class="line"></div>
+        <p>
+          ART INSPIRED<br />
+          BY FABIA CECCHIN
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
