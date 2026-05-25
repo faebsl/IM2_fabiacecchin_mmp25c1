@@ -89,7 +89,7 @@ async function searchArtworks() {
     }
 
     results.innerHTML = '';
-    statusText.textContent = 'Suche läuft...';
+    showLoadingAnimation();
     searchButton.disabled = true;
 
     try {
@@ -248,7 +248,11 @@ function showArtworks(artworks) {
 
         card.innerHTML = `
             <div class="card-image">
-                <img src="${imageUrl}" alt="">
+                <img
+                    src="${imageUrl}"
+                    alt=""
+                    onerror="this.parentElement.classList.add('no-image'); this.remove();"
+                >
                 ${artwork.isHighlight ? '<span class="tag tag-image">Highlight</span>' : ''}
             </div>
 
@@ -283,4 +287,20 @@ function showArtworks(artworks) {
 
         results.appendChild(card);
     }
+}
+
+
+/*
+* Lottie Ladeanimation zeigen
+*/
+function showLoadingAnimation() {
+    statusText.innerHTML = `
+        <div class="loading-lottie">
+            <dotlottie-wc
+                src="https://lottie.host/27a1eed3-e78a-4135-b316-cf761cb84d36/FxHIXrMYm2.lottie"
+                autoplay
+                loop
+            ></dotlottie-wc>
+        </div>
+    `;
 }
